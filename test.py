@@ -1,18 +1,8 @@
-import matplotlib.pyplot as plt
 import numpy as np
+import common.functions as cf
 
-x = np.arange(0, 6, 0.1)
-y1 = np.sin(x)
-y2 = np.cos(x)
+def function_2(x):
+    return x[0]**2 + x[1]**2
 
-#%%
-plt.plot(x, y1, label='sin')
-plt.plot(x, y2, label='cos', linestyle='--')
-plt.xlabel('x')
-plt.ylabel('y')
-plt.title('sin & cos')
-plt.legend(['sin()','cos()'])
-plt.show()
-
-
-#%%
+init_x = np.array([-3.0, 4.0])
+x = cf.gradient_descent(function_2, init_x, lr=0.1, step_num=100 )
