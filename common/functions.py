@@ -32,7 +32,10 @@ def numerical_gradient(f, x):
     h = 1e-4
     grad = np.zeros_like(x)
 
-    for idx in range(x.size):
+    
+    for idx in range(x.shape[0]):
+        if(idx == 783):
+            test = ""
         tmp_val = x[idx]
         x[idx] = tmp_val + h
         fxh1 = f(x)
