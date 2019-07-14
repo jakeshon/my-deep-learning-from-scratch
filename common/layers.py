@@ -1,6 +1,6 @@
 import numpy as np
 #from common.functions import *
-from .functions import *
+from common.functions import *
 
 
 class Relu:
@@ -39,6 +39,8 @@ class Affine:
         self.W = W
         self.b = b
         self.x = None
+        self.dW = None
+        self.db = None
     
     def forward(self, x):
         self.x = x
@@ -66,6 +68,7 @@ class SoftmaxWithLoss:
         self.y = softmax(x)
         self.loss = cross_entropy_error(self.y, self.t)
 
+        return self.loss
     
     def backward(self, dout=1):
         batch_size = self.t.shape[0]
